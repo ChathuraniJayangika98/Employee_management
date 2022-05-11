@@ -22,7 +22,7 @@ $(document).on("click", "#btnSave", function(event){
 var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
 	$.ajax( 
 	{ 
-	 url : "UserAPI", 
+	 url : "EmployeeAPI", 
 	 type : type, 
 	 data : $("#formItem").serialize(), 
 	 dataType : "text", 
@@ -39,7 +39,7 @@ function onItemSaveComplete(response, status){
 		 var resultSet = JSON.parse(response); 
 		 if (resultSet.status.trim() == "success") { 
 			 
-			 $("#alertSuccess").text("Successfully saved."); 
+			 $("#alertSuccess").text("Successfully Saved."); 
 			 $("#alertSuccess").show(); 
 			 $("#divItemsGrid").html(resultSet.data); 
 		 } 
@@ -67,14 +67,12 @@ function onItemSaveComplete(response, status){
 $(document).on("click", ".btnUpdate", function(event){ 
 		
 		 $("#hidItemIDSave").val($(this).data("userid")); 
-		 $("#buyerName").val($(this).closest("tr").find('td:eq(0)').text()); 
-		 $("#address").val($(this).closest("tr").find('td:eq(1)').text()); 
-		 $("#NIC").val($(this).closest("tr").find('td:eq(2)').text()); 
-		 $("#softwareName").val($(this).closest("tr").find('td:eq(3)').text()); 
-		 $("#size").val($(this).closest("tr").find('td:eq(4)').text());  
-		 $("#version").val($(this).closest("tr").find('td:eq(5)').text()); 
-		 $("#cost").val($(this).closest("tr").find('td:eq(6)').text()); 
-		 $("#date").val($(this).closest("tr").find('td:eq(7)').text()); 
+		 $("#employeeName").val($(this).closest("tr").find('td:eq(0)').text()); 
+		 $("#email").val($(this).closest("tr").find('td:eq(1)').text()); 
+		 $("#phoneNumber").val($(this).closest("tr").find('td:eq(2)').text()); 
+		 $("#employeeType").val($(this).closest("tr").find('td:eq(3)').text()); 
+		 $("#description").val($(this).closest("tr").find('td:eq(4)').text());  
+		 
 		// $("#").val($(this).closest("tr").find('td:eq(8)').text()); 
 		 
 });
@@ -86,9 +84,9 @@ $(document).on("click", ".btnUpdate", function(event){
 $(document).on("click", ".btnRemove", function(event) { 
 	 $.ajax( 
 	 { 
-	 	url : "UserAPI", 
+	 	url : "EmployeeAPI", 
 	 	type : "DELETE", 
-	 	data : "orderId=" + $(this).data("userid"),
+	 	data : "employeeId=" + $(this).data("userid"),
 	 	dataType : "text", 
 	 	complete : function(response, status) { 
 	 		onItemDeleteComplete(response.responseText, status); 
@@ -105,7 +103,7 @@ function onItemDeleteComplete(response, status){
 		var resultSet = JSON.parse(response); 
 			if (resultSet.status.trim() == "success"){
 			
-				$("#alertSuccess").text("Successfully deleted."); 
+				$("#alertSuccess").text("Successfully Deleted."); 
 				$("#alertSuccess").show(); 
 				$("#divItemsGrid").html(resultSet.data); 
 				
@@ -129,58 +127,27 @@ function onItemDeleteComplete(response, status){
 function validateItemForm(){
 	// CODE
 
-//Address---------------------------
-if ($("#address").val().trim() == "")
+//email---------------------------
+if ($("#email").val().trim() == "")
 {
-return "Insert Address.";
+return "Insert Email.";
 } 
 
-//NIC------------------------------
-if ($("#NIC").val().trim() == "")
+//Phone Number------------------------------
+if ($("#phoneNumber").val().trim() == "")
 {
-return "Insert NIC.";
+return "Insert phoneNumber.";
 }
 
-//Software Name------------------------------
-if ($("#softwareName").val().trim() == "")
+//Employee Type------------------------------
+if ($("#employeeType").val().trim() == "")
 {
-return "Insert software Name.";
+return "Insert employee Type.";
 }
 
-//Size-------------------------------
-if ($("#size").val().trim() == "")
+//Description-------------------------------
+if ($("#description").val().trim() == "")
 {
-return "Insert Size.";
+return "Insert Description.";
 }
-
-//Version----------------------------
-if ($("#version").val().trim() == "")
-{
-return "Insert version.";
 }
-
-//Date---------------------------------
-if ($("#date").val().trim() == "")
-{
-return "Insert Date.";
-}
-	
-// Cost-------------------------------
-if ($("#cost").val().trim() == ""){
-	
-	return "Insert Order Cost.";
-}
-// is numerical value
-var tmpPrice = $("#cost").val().trim();
-if (!$.isNumeric(tmpPrice)){
-			
-	return "Insert a numerical value for cost.";
-}
-		
-// convert to decimal price
-$("#cost").val(parseFloat(tmpPrice).toFixed(2));
-
-
-	return true;
-}
-
