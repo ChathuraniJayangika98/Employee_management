@@ -43,10 +43,11 @@ public class EmployeeAPI extends HttpServlet {
 		//doGet(request, response);
 		String output = EmployeeObj.insertEmployee(request.getParameter("hidItemIDSave"),
 				request.getParameter("employeeName"),
+				request.getParameter("employeeType"),
 				request.getParameter("email"),
-				request.getParameter("phoneNumber"),
-				request.getParameter("employeeType"), 
-				request.getParameter("description"));
+				request.getParameter("description"), 
+				request.getParameter("phoneNumber")
+				);
 response.getWriter().write(output);
 	}
 
@@ -56,14 +57,13 @@ response.getWriter().write(output);
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Map  paras = getParasMap(request); 
+		Map paras = getParasMap(request); 
 		String output = EmployeeObj.updateEmployee(paras.get("hidItemIDSave").toString(), 
 												paras.get("employeeName").toString(), 
-												paras.get("email").toString(),
-												paras.get("phoneNumber").toString(), 
-												paras.get("employeeType").toString(), 
-												paras.get("description").toString() 
-												
+												paras.get("employeeType").toString(),
+												paras.get("email").toString(), 
+												paras.get("description").toString(), 
+												paras.get("phoneNumber").toString()
 												//paras.get("sector").toString(),
 												); 
 		response.getWriter().write(output); 
@@ -83,7 +83,7 @@ response.getWriter().write(output);
 	// Convert request parameters to a Map
 		private static Map getParasMap(HttpServletRequest request) {
 			
-			Map<String, String> map = new HashMap<String, String>(); 
+			Map <String, String> map = new HashMap <String, String>(); 
 			try{ 
 				
 				 Scanner scanner = new Scanner(request.getInputStream(), "UTF-8"); 

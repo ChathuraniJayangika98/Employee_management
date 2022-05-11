@@ -10,14 +10,14 @@ public class Employee {
 	
 	
 		
-    //A common method to connect to the DB
+		//A common method to connect to the DB
 	//A common method to connect to the DB
 	private Connection connect(){
 		Connection con = null;
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-	//Provide the correct details: DBServer/DBName, username, password
+			//Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/buyer2", "root", "chathu1998");
 			
 		}catch (Exception e){
@@ -30,7 +30,7 @@ public class Employee {
 		
 		
 		//Insert Project Details
-		public String insertEmployee(String employeeId, String employeeName, String email, String phoneNumber,String employeeType, String description){
+		public String insertEmployee(String employeeID, String employeeName, String employeeType, String email,String description, String phoneNumber){
 			String output = "";
 			try{
 				Connection con = connect();
@@ -40,17 +40,17 @@ public class Employee {
 				
 					
 					// create a prepared statement
-					String query = "INSERT INTO `employee`(`employeeId`, `employeeName`, `email`, `phoneNumber`, `employeeType`, `description`) VALUES (?,?,?,?,?,?)";
+					String query = "INSERT INTO `employee`(`employeeID`, `employeeName`, `employeeType`, `email`, `description`,`phoneNumber`) VALUES (?,?,?,?,?,?)";
 					PreparedStatement preparedStmt = con.prepareStatement(query);
 					
 					
 					 // binding values
 					 preparedStmt.setInt(1, 0);
 					 preparedStmt.setString(2, employeeName);
-					 preparedStmt.setString(3, email);
-					 preparedStmt.setString(4, phoneNumber);
-					 preparedStmt.setString(5, employeeType); 
-					 preparedStmt.setString(6, description);
+					 preparedStmt.setString(3, employeeType);
+					 preparedStmt.setString(4, email);
+					 preparedStmt.setString(5, description); 
+					 preparedStmt.setString(6, phoneNumber);
 					 
 					 // execute the statement
 					 preparedStmt.execute();
@@ -84,10 +84,10 @@ public class Employee {
 						"<table border='1' >"+ 
 						"<tr >" +
 							 "<th >Employee Name</th>" +
-							 "<th >Email</th>" +
-							 "<th>Phone Number</th>" +
-							 "<th>Employee Type</th>" +
+							 "<th >Employee Type</th>" +
+							 "<th>Email</th>" +
 							 "<th>Description</th>" +
+							 "<th>Phone Number</th>" +
 							 "<th>Update</th>" +
 							 "<th>Remove</th>" +
 						
@@ -104,21 +104,22 @@ public class Employee {
 					 
 					 String employeeId =  Integer.toString(rs.getInt("employeeId"));
 					 String employeeName = rs.getString("employeeName");
-					 String email = rs.getString("email");
-					 String phoneNumber = rs.getString("phoneNumber");
 					 String employeeType = rs.getString("employeeType");
+					 String email = rs.getString("email");
 					 String description = rs.getString("description");
+					 String phoneNumber = rs.getString("phoneNumber");
 	
 					 
 					 // Add into the html table
 					 
-					 //output += "<tr><td>" + orderId + "</td>";
+					 //output += "<tr><td>" + employeeId + "</td>";
 					 output += "<td>" + employeeName + "</td>";
-					 output += "<td>" + email + "</td>";
-					 output += "<td>" + phoneNumber + "</td>";
 					 output += "<td>" + employeeType + "</td>";
+					 output += "<td>" + email + "</td>";
 					 output += "<td>" + description + "</td>";
+					 output += "<td>" + phoneNumber + "</td>";
 		
+					 
 					 
 					 // buttons
 					
@@ -135,7 +136,7 @@ public class Employee {
 			 
 			 }catch (Exception e){
 				 
-				 output = "Error while reading the cart orders.";
+				 output = "Error while reading the employees.";
 				 System.err.println(e.getMessage());
 			 }
 			 return output;
@@ -144,7 +145,7 @@ public class Employee {
 		
 		
 		
-		public String updateEmployee(String employeeId, String employeeName, String email, String phoneNumber,String employeeType, String description){ 
+		public String updateEmployee(String employeeId, String employeeName, String employeeType, String email,String description,String phoneNumber){ 
 			String output = ""; 
 			try{
 				Connection con = connect();
@@ -153,16 +154,16 @@ public class Employee {
 				} 
 				
 				 // create a prepared statement
-				String query = "UPDATE `employee` SET `employeeName`=?,`email`=?,`phoneNumber`=?,`employeeType`=?,`description`=?";
+				String query = "UPDATE `employee` SET `employeeName`=?,`employeeType`=?,`email`=?,`description`=?,`phoneNumber`=? WHERE `employeeId`=?";
 				 PreparedStatement preparedStmt = con.prepareStatement(query); 
 				 
 				 // binding values
 				  
 				 preparedStmt.setString(1, employeeName);
-				 preparedStmt.setString(2, email);
-				 preparedStmt.setString(3, phoneNumber);
-				 preparedStmt.setString(4, employeeType); 
-				 preparedStmt.setString(5, description);
+				 preparedStmt.setString(2, employeeType);
+				 preparedStmt.setString(3, email);
+				 preparedStmt.setString(4, description);
+				 preparedStmt.setString(5, phoneNumber);
 				 preparedStmt.setString(6, employeeId);
 				 
 				// preparedStmt.setString(4, sector);

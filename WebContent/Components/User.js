@@ -22,7 +22,7 @@ $(document).on("click", "#btnSave", function(event){
 var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
 	$.ajax( 
 	{ 
-	 url : "EmployeeAPI", 
+	 url : "UserAPI", 
 	 type : type, 
 	 data : $("#formItem").serialize(), 
 	 dataType : "text", 
@@ -67,12 +67,14 @@ function onItemSaveComplete(response, status){
 $(document).on("click", ".btnUpdate", function(event){ 
 		
 		 $("#hidItemIDSave").val($(this).data("userid")); 
-		 $("#employeeName").val($(this).closest("tr").find('td:eq(0)').text()); 
-		 $("#employeetype").val($(this).closest("tr").find('td:eq(1)').text()); 
-		 $("#email").val($(this).closest("tr").find('td:eq(2)').text()); 
-		 $("#description").val($(this).closest("tr").find('td:eq(3)').text()); 
-		 $("#phoneNumber").val($(this).closest("tr").find('td:eq(4)').text());  
-		 
+		 $("#buyerName").val($(this).closest("tr").find('td:eq(0)').text()); 
+		 $("#address").val($(this).closest("tr").find('td:eq(1)').text()); 
+		 $("#NIC").val($(this).closest("tr").find('td:eq(2)').text()); 
+		 $("#softwareName").val($(this).closest("tr").find('td:eq(3)').text()); 
+		 $("#size").val($(this).closest("tr").find('td:eq(4)').text());  
+		 $("#version").val($(this).closest("tr").find('td:eq(5)').text()); 
+		 $("#cost").val($(this).closest("tr").find('td:eq(6)').text()); 
+		 $("#date").val($(this).closest("tr").find('td:eq(7)').text()); 
 		// $("#").val($(this).closest("tr").find('td:eq(8)').text()); 
 		 
 });
@@ -84,9 +86,9 @@ $(document).on("click", ".btnUpdate", function(event){
 $(document).on("click", ".btnRemove", function(event) { 
 	 $.ajax( 
 	 { 
-	 	url : "EmployeeAPI", 
+	 	url : "UserAPI", 
 	 	type : "DELETE", 
-	 	data : "employeeId=" + $(this).data("userid"),
+	 	data : "orderId=" + $(this).data("userid"),
 	 	dataType : "text", 
 	 	complete : function(response, status) { 
 	 		onItemDeleteComplete(response.responseText, status); 
@@ -121,36 +123,64 @@ function onItemDeleteComplete(response, status){
 		$("#alertError").text("Unknown error while deleting.."); 
 		$("#alertError").show(); 
 	} 
-
 }
 
 // CLIENT-MODEL================================================================
 function validateItemForm(){
 	// CODE
 
-//Employee Type---------------------------
-if ($("#employeeType").val().trim() == "")
+//Address---------------------------
+if ($("#address").val().trim() == "")
 {
-return "Insert Employee Type.";
+return "Insert Address.";
 } 
 
-//Email------------------------------
-if ($("#email").val().trim() == "")
+//NIC------------------------------
+if ($("#NIC").val().trim() == "")
 {
-return "Insert Email.";
+return "Insert NIC.";
 }
 
-//Description------------------------------
-if ($("#description").val().trim() == "")
+//Software Name------------------------------
+if ($("#softwareName").val().trim() == "")
 {
-return "Insert Description.";
+return "Insert software Name.";
 }
 
-//Phone Number-------------------------------
-if ($("#phoneNumber").val().trim() == "")
+//Size-------------------------------
+if ($("#size").val().trim() == "")
 {
-return "Insert Phone Number.";
+return "Insert Size.";
 }
- return true;
+
+//Version----------------------------
+if ($("#version").val().trim() == "")
+{
+return "Insert version.";
+}
+
+//Date---------------------------------
+if ($("#date").val().trim() == "")
+{
+return "Insert Date.";
+}
+	
+// Cost-------------------------------
+if ($("#cost").val().trim() == ""){
+	
+	return "Insert Order Cost.";
+}
+// is numerical value
+var tmpPrice = $("#cost").val().trim();
+if (!$.isNumeric(tmpPrice)){
+			
+	return "Insert a numerical value for cost.";
+}
+		
+// convert to decimal price
+$("#cost").val(parseFloat(tmpPrice).toFixed(2));
+
+
+	return true;
 }
 

@@ -1,4 +1,4 @@
-<%@ page import="com.User"%>
+<%@ page import="com.Employee"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
 <script src="Components/jquery-3.6.0.min.js"></script>
-<script src="Components/User.js"></script>
+<script src="Components/Employee.js"></script>
 
 
 <meta charset="ISO-8859-1">
@@ -21,22 +21,17 @@
 		
 		 Employee Name:
 		<input id="employeeName" name="employeeName" type="text" class="form-control form-control-sm"><br> 
-		Email Address:
+		<label>Employee Type</label> 
+					<select id="employeeType" name="employeeType" class="form-control form-control-sm">
+						<option value="Meter Reader">Meter Reader</option>
+						<option value="Maintainer">Maintainer</option>
+					</select><br>
+		 Email Address:
 		<input id="email" name="email" type="text" class="form-control form-control-sm"><br>
+		 Description:
+		<input id="description" name="description" type="text" class="form-control form-control-sm"><br>
 		 Phone Number:
-		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control form-control-sm"><br>
-		 
-		<label>employeeType</label> 
-							<select id="employeeType" name="employeeType" class="form-control form-control-sm">
-							<option value="1">Meeter Reader</option>
-							<option value="2">Maintainer</option>
-							
-							</select><br>
-							
-		Description:
-		<input id="description" name="description" type="text" class="form-control form-control-sm"><br>				
-							
-		 
+		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control form-control-sm"><br> 
 		
 		<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
 		<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
@@ -47,8 +42,8 @@
 	<br>
 	<div id="divItemGrid">
 	<%
-	User CartObj = new User(); 
-	 out.print(CartObj.readCart()); 
+	Employee EmployeeObj = new Employee(); 
+	 out.print(EmployeeObj.readEmployee()); 
 	%>
 	</div>
 </div> </div> </div> 
