@@ -58,8 +58,8 @@ function onItemSaveComplete(response, status){
 		 $("#alertError").text("Unknown error while saving.."); 
 		 $("#alertError").show(); 
 		}
-	$("#hidItemIDSave").val(""); 
-	$("#formItem")[0].reset(); 
+		$("#hidItemIDSave").val(""); 
+		$("#formItem")[0].reset(); 
 }
 
 
@@ -95,7 +95,7 @@ $(document).on("click", ".btnRemove", function(event) {
 })
 	
 
-
+//Delete===================================
 function onItemDeleteComplete(response, status){
 	
 	if (status == "success") {
