@@ -10,14 +10,14 @@ public class Employee {
 	
 	
 		
-		//A common method to connect to the DB
+	//A common method to connect to the DB
 	//A common method to connect to the DB
 	private Connection connect(){
 		Connection con = null;
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			//Provide the correct details: DBServer/DBName, username, password
+	//Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/buyer2", "root", "chathu1998");
 			
 		}catch (Exception e){
@@ -130,7 +130,7 @@ public class Employee {
 				 }
 			 con.close();
 			 
-			 // Complete the html table
+		 // Complete the html table
 			 output += "</table>";
 			 
 			 
@@ -143,7 +143,7 @@ public class Employee {
 			 
 		}
 		
-		
+		//Update Details
 		
 		public String updateEmployee(String employeeId, String employeeName, String employeeType, String email,String description,String phoneNumber){ 
 			String output = ""; 

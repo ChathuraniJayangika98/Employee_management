@@ -46,7 +46,7 @@
 	<br>
 	<div id="divItemGrid">
 	<%
-	Employee EmployeeObj = new Employee(); 
+	 Employee EmployeeObj = new Employee(); 
 	 out.print(EmployeeObj.readEmployee()); 
 	%>
 	</div>
