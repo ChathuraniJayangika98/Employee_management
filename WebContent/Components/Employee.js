@@ -64,7 +64,7 @@ function onItemSaveComplete(response, status){
 
 
 // UPDATE==========================================
-$(document).on("click", ".btnUpdate", function(event){ 
+		$(document).on("click", ".btnUpdate", function(event){ 
 		
 		 $("#hidItemIDSave").val($(this).data("userid")); 
 		 $("#employeeName").val($(this).closest("tr").find('td:eq(0)').text()); 
@@ -81,14 +81,14 @@ $(document).on("click", ".btnUpdate", function(event){
 
 
 
-$(document).on("click", ".btnRemove", function(event) { 
-	 $.ajax( 
-	 { 
-	 	url : "EmployeeAPI", 
-	 	type : "DELETE", 
-	 	data : "employeeId=" + $(this).data("userid"),
-	 	dataType : "text", 
-	 	complete : function(response, status) { 
+		$(document).on("click", ".btnRemove", function(event) { 
+		 $.ajax( 
+	 	{ 
+	 		url : "EmployeeAPI", 
+	 		type : "DELETE", 
+	 		data : "employeeId=" + $(this).data("userid"),
+	 		dataType : "text", 
+	 		complete : function(response, status) { 
 	 		onItemDeleteComplete(response.responseText, status); 
 	 	} 
 	}); 
@@ -137,22 +137,23 @@ $(document).on("click", ".btnRemove", function(event) {
 	} 
 
 	//Email------------------------------
-if ($("#email").val().trim() == "")
-{
-return "Insert Email.";
-}
+	if ($("#email").val().trim() == "")
+	{
+		return "Insert Email.";
+	}
 
-//Description------------------------------
-if ($("#description").val().trim() == "")
-{
-return "Insert Description.";
-}
+	//Description------------------------------
+	if ($("#description").val().trim() == "")
+	{	
+		return "Insert Description.";
+	}
 
-//Phone Number-------------------------------
-if ($("#phoneNumber").val().trim() == "")
-{
-return "Insert Phone Number.";
-}
- return true;
+	//Phone Number-------------------------------
+	if ($("#phoneNumber").val().trim() == "")
+	{
+		return "Insert Phone Number.";
+	}
+	
+ 	return true;
 }
 
