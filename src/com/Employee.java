@@ -187,7 +187,7 @@ public class Employee {
 				 return output; 
 		 }
 		
-		
+		//Delete details
 
 		public String deleteEmployee(String employeeId) { 
 			String output = ""; 
