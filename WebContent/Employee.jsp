@@ -19,17 +19,21 @@
 
 	<form id="formItem" name="formItem">
 		
-		 Employee Name:
+		Employee Name:
 		<input id="employeeName" name="employeeName" type="text" class="form-control form-control-sm"><br> 
+		
 		<label>Employee Type</label> 
 					<select id="employeeType" name="employeeType" class="form-control form-control-sm">
 						<option value="Meter Reader">Meter Reader</option>
 						<option value="Maintainer">Maintainer</option>
 					</select><br>
+		 
 		 Email Address:
 		<input id="email" name="email" type="text" class="form-control form-control-sm"><br>
+		 
 		 Description:
 		<input id="description" name="description" type="text" class="form-control form-control-sm"><br>
+		 
 		 Phone Number:
 		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control form-control-sm"><br> 
 		
@@ -38,7 +42,7 @@
 	</form>
 	
 	<div id="alertSuccess" class="alert alert-success"></div>
-<div id="alertError" class="alert alert-danger"></div>
+	<div id="alertError" class="alert alert-danger"></div>
 	<br>
 	<div id="divItemGrid">
 	<%
