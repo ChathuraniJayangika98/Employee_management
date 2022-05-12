@@ -124,7 +124,7 @@ function onItemDeleteComplete(response, status){
 
 }
 
-// CLIENT-MODEL================================================================
+// CLIENT-MODEL
 function validateItemForm(){
 	// CODE
 
