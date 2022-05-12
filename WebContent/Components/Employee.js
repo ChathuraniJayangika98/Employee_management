@@ -95,8 +95,9 @@ $(document).on("click", ".btnRemove", function(event) {
 })
 	
 
-//Delete===================================
-function onItemDeleteComplete(response, status){
+	//Delete===================================
+	
+	function onItemDeleteComplete(response, status){
 	
 	if (status == "success") {
 		
@@ -124,17 +125,18 @@ function onItemDeleteComplete(response, status){
 
 	}
 
-// CLIENT-MODEL
-function validateItemForm(){
+	// CLIENT-MODEL
+
+	function validateItemForm(){
 	// CODE
 
-//Employee Type---------------------------
-if ($("#employeeType").val().trim() == "")
-{
-return "Insert Employee Type.";
-} 
+	//Employee Type---------------------------
+	if ($("#employeeType").val().trim() == "")
+	{
+		return "Insert Employee Type.";
+	} 
 
-//Email------------------------------
+	//Email------------------------------
 if ($("#email").val().trim() == "")
 {
 return "Insert Email.";
