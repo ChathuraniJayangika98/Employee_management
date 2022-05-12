@@ -55,6 +55,7 @@ response.getWriter().write(output);
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// TODO Auto-generated method stub
 		
 		Map paras = getParasMap(request); 
@@ -80,6 +81,7 @@ response.getWriter().write(output);
 		String output = EmployeeObj.deleteEmployee(paras.get("employeeId").toString()); 
 		response.getWriter().write(output);
 	}
+	
 	// Convert request parameters to a Map
 		private static Map getParasMap(HttpServletRequest request) {
 			
