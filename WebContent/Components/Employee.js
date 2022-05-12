@@ -33,7 +33,7 @@ $(document).on("click", "#btnSave", function(event){
 	}); 
 });
 
-function onItemSaveComplete(response, status){ 
+	function onItemSaveComplete(response, status){ 
 	if (status == "success") {
 		
 		 var resultSet = JSON.parse(response); 
@@ -114,13 +114,13 @@ function onItemSaveComplete(response, status){
 				$("#alertError").show(); 
 		} 
 	} 
-	else if (status == "error") { 
+			else if (status == "error") { 
 				$("#alertError").text("Error while deleting."); 
 				$("#alertError").show(); 
 		} 
-	else { 
-		$("#alertError").text("Unknown error while deleting.."); 
-		$("#alertError").show(); 
+			else { 
+				$("#alertError").text("Unknown error while deleting.."); 
+				$("#alertError").show(); 
 		} 
 
 	}
