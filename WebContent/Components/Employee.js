@@ -14,21 +14,21 @@ $(document).on("click", "#btnSave", function(event){
 	 $("#alertError").text(status); 
 	 $("#alertError").show(); 
 	 
- return; 
+ 	return; 
 } 
 
 
-// If valid------------------------
-var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
+	// If valid------------------------
+	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
 	$.ajax( 
 	{ 
-	 url : "EmployeeAPI", 
-	 type : type, 
-	 data : $("#formItem").serialize(), 
-	 dataType : "text", 
-	 complete : function(response, status) { 
+	 	url : "EmployeeAPI", 
+	 	type : type, 
+	 	data : $("#formItem").serialize(), 
+	 	dataType : "text", 
+	 	complete : function(response, status) { 
 		 
-	onItemSaveComplete(response.responseText, status); 
+		onItemSaveComplete(response.responseText, status); 
 	 } 
 	}); 
 });
@@ -49,21 +49,21 @@ function onItemSaveComplete(response, status){
 			 $("#alertError").show(); 
 		 } 
 	} 
-	else if (status == "error") { 
+		else if (status == "error") { 
 		
 		 $("#alertError").text("Error while saving."); 
 		 $("#alertError").show(); 
-	} else{ 
+	} 	else{ 
 		
 		 $("#alertError").text("Unknown error while saving.."); 
 		 $("#alertError").show(); 
 		}
 		$("#hidItemIDSave").val(""); 
 		$("#formItem")[0].reset(); 
-}
+	}
 
 
-// UPDATE==========================================
+		// UPDATE==========================================
 		$(document).on("click", ".btnUpdate", function(event){ 
 		
 		 $("#hidItemIDSave").val($(this).data("userid")); 
@@ -75,7 +75,7 @@ function onItemSaveComplete(response, status){
 		 
 		
 		 
-});
+		});
 
 
 
