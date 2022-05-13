@@ -14,41 +14,42 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FundAPI
  */
-@WebServlet("/EmployeeAPI")
-public class EmployeeAPI extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	Employee EmployeeObj = new Employee();
+	@WebServlet("/EmployeeAPI")
+		public class EmployeeAPI extends HttpServlet {
+		private static final long serialVersionUID = 1L;
+		Employee EmployeeObj = new Employee();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeAPI() {
+		public EmployeeAPI() {
         super();
         // TODO Auto-generated constructor stub
-    }
+		}
+		
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		String output = EmployeeObj.insertEmployee(request.getParameter("hidItemIDSave"),
+			String output = EmployeeObj.insertEmployee(request.getParameter("hidItemIDSave"),
 				request.getParameter("employeeName"),
 				request.getParameter("employeeType"),
 				request.getParameter("email"),
 				request.getParameter("description"), 
 				request.getParameter("phoneNumber")
 				);
-response.getWriter().write(output);
+			response.getWriter().write(output);
 	}
 
 	/**
