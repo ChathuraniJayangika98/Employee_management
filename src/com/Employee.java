@@ -29,8 +29,9 @@ public class Employee {
 			
 		
 		
-		//Insert Project Details
-		public String insertEmployee(String employeeID, String employeeName, String employeeType, String email,String description, String phoneNumber){
+		//Insert Project Details--------------------------------
+	
+			public String insertEmployee(String employeeID, String employeeName, String employeeType, String email,String description, String phoneNumber){
 			String output = "";
 			try{
 				Connection con = connect();
@@ -39,9 +40,9 @@ public class Employee {
 				}
 				
 					
-					// create a prepared statement
-					String query = "INSERT INTO `employee`(`employeeID`, `employeeName`, `employeeType`, `email`, `description`,`phoneNumber`) VALUES (?,?,?,?,?,?)";
-					PreparedStatement preparedStmt = con.prepareStatement(query);
+		// create a prepared statement
+			String query = "INSERT INTO `employee`(`employeeID`, `employeeName`, `employeeType`, `email`, `description`,`phoneNumber`) VALUES (?,?,?,?,?,?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);
 					
 					
 					 // binding values
@@ -65,21 +66,20 @@ public class Employee {
 						 output = "{\"status\":\"error\", \"data\":\"Error while inserting the employee to system.\"}"; 
 						 System.err.println(e.getMessage());
 					 }
-			 return output;
+			 		return output;
 		 }
 		
 		
 		
-		
-		public String readEmployee(){
-			String output = "";
+			public String readEmployee(){
+				String output = "";
 			try{
 				Connection con = connect();
 					if (con == null){
 						return "Error while connecting to the database for reading."; 
 			}
 					
-				// Prepare the html table to be displayed
+			// Prepare the html table to be displayed
 				output = 
 						"<table border='1' >"+ 
 						"<tr >" +
@@ -98,7 +98,7 @@ public class Employee {
 				 ResultSet rs = stmt.executeQuery(query);
 				 
 				 
-				 // iterate through the rows in the result set
+			// iterate through the rows in the result set
 				 while (rs.next()){
 					 
 					 
@@ -110,7 +110,7 @@ public class Employee {
 					 String phoneNumber = rs.getString("phoneNumber");
 	
 					 
-					 // Add into the html table
+				// Add into the html table
 					 
 					 //output += "<tr><td>" + employeeId + "</td>";
 					 output += "<td>" + employeeName + "</td>";
@@ -143,7 +143,7 @@ public class Employee {
 			 
 		}
 		
-		//Update Details
+		//Update Details-------------------------------------
 		
 		public String updateEmployee(String employeeId, String employeeName, String employeeType, String email,String description,String phoneNumber){ 
 			String output = ""; 
@@ -187,7 +187,7 @@ public class Employee {
 				 return output; 
 		 }
 		
-		//Delete details
+		//Delete details--------------------------
 
 		public String deleteEmployee(String employeeId) { 
 			String output = ""; 

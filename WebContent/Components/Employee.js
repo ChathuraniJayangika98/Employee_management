@@ -63,7 +63,7 @@ $(document).on("click", "#btnSave", function(event){
 	}
 
 
-		// UPDATE==========================================
+		// UPDATE------------------------------------
 		$(document).on("click", ".btnUpdate", function(event){ 
 		
 		 $("#hidItemIDSave").val($(this).data("userid")); 
@@ -95,7 +95,7 @@ $(document).on("click", "#btnSave", function(event){
 })
 	
 
-	//Delete===================================
+	//Delete------------------------------------
 	
 	function onItemDeleteComplete(response, status){
 	
