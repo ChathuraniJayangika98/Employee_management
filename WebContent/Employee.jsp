@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet" href="Views/bootstrap.min.css">
 <script src="Components/jquery-3.6.0.min.js"></script>
 <script src="Components/Employee.js"></script>
@@ -20,7 +21,7 @@
 	<form id="formItem" name="formItem">
 		
 		Employee Name:
-		<input id="employeeName" name="employeeName" type="text" class="form-control form-control-sm"><br> 
+		<input id="employeeName" name="employeeName" type="text" class="form-control "><br> 
 		
 		<label>Employee Type</label> 
 					<select id="employeeType" name="employeeType" class="form-control form-control-sm">
@@ -29,13 +30,13 @@
 					</select><br>
 		 
 		 Email Address:
-		<input id="email" name="email" type="text" class="form-control form-control-sm"><br>
+		<input id="email" name="email" type="text" class="form-control "><br>
 		 
 		 Description:
-		<input id="description" name="description" type="text" class="form-control form-control-sm"><br>
+		<input id="description" name="description" type="text" class="form-control "><br>
 		 
 		 Phone Number:
-		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control form-control-sm"><br> 
+		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control "><br> 
 		
 		<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
 		<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
@@ -43,7 +44,7 @@
 	
 	<div id="alertSuccess" class="alert alert-success"></div>
 	<div id="alertError" class="alert alert-danger"></div>
-	<br>
+	<br><br>
 	<div id="divItemGrid">
 	<%
 	 Employee EmployeeObj = new Employee(); 
