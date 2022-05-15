@@ -81,7 +81,7 @@ public class Employee {
 					
 			// Prepare the html table to be displayed
 				output = 
-						"<table border='1' >"+ 
+						"<table border='1' class='table table-info table-bordered table-striped table-hover table-warning' >"+ 
 						"<tr >" +
 							 "<th >Employee Name</th>" +
 							 "<th >Employee Type</th>" +
